@@ -1,8 +1,12 @@
 import org.testng.annotations.Test;
+
+import POJO_class.CourseList;
+
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
 import io.restassured.filter.session.SessionFilter;
+import io.restassured.parsing.Parser;
 import io.restassured.path.json.JsonPath;
 
 import static io.restassured.RestAssured.*;
@@ -14,7 +18,7 @@ public class OAuthAPI {
 	@Test
 	public void oauthTest()
 	{
-		String url = "https://rahulshettyacademy.com/getCourse.php?code=4%2F0gF1FzFjCmgg-M1Rzk4LGJ9V_2bi6jqWKTjlEhUwwcyiSFlyi4WBS7HEIKdDF7l58c9VKsnv-_moMAZqSLUuTiA&scope=email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent#";
+		String url = "https://rahulshettyacademy.com/getCourse.php?state=abcd&code=4%2F4AHN6fI0cLqAqFK81nN8ZlRMF7MnUZK61l5mvZxLspY6zkyD5Xv9dlgpH-mW_mSUjcJP5VjeQ7nmONZxwKCs-sQ&scope=email+openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&authuser=0&prompt=none";
 		String partialURl = url.split("code=")[1];
 		String code = partialURl.split("&scope")[0];
 		
@@ -27,10 +31,10 @@ public class OAuthAPI {
 		JsonPath js = new JsonPath(accessTokenResponse);
 		String accessToken = js.getString("access_token");
 		
-		String finalResponse = given().contentType("application/json").queryParam("access_token", accessToken)
-		.when().log().all().get("https://rahulshettyacademy.com/getCourse.php").asString();
+		CourseList finalResponse = given().contentType("application/json").queryParam("access_token", accessToken).expect().defaultParser(Parser.JSON)
+		.when().get("https://rahulshettyacademy.com/getCourse.php").as(CourseList.class);
 		
-		System.out.println(finalResponse);
+		System.out.println(finalResponse.getInstructor());
 	}
 
 }

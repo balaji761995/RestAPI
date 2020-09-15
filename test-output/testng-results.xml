@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="13889" started-at="2020-06-05T12:45:48 IST" finished-at="2020-06-05T12:46:02 IST">
+  <suite name="Default suite" duration-ms="14160" started-at="2020-09-15T15:06:33 IST" finished-at="2020-09-15T15:06:48 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="13889" started-at="2020-06-05T12:45:48 IST" finished-at="2020-06-05T12:46:02 IST">
+    <test name="Default test" duration-ms="14160" started-at="2020-09-15T15:06:33 IST" finished-at="2020-09-15T15:06:48 IST">
       <class name="OAuthAPI">
-        <test-method status="PASS" signature="oauthTest()[pri:0, instance:OAuthAPI@74650e52]" name="oauthTest" duration-ms="13734" started-at="2020-06-05T12:45:48 IST" finished-at="2020-06-05T12:46:02 IST">
+        <test-method status="PASS" signature="oauthTest()[pri:0, instance:OAuthAPI@27a8c74e]" name="oauthTest" duration-ms="13959" started-at="2020-09-15T15:06:34 IST" finished-at="2020-09-15T15:06:48 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- oauthTest -->
